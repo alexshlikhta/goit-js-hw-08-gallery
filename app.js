@@ -101,19 +101,22 @@ function keyAction(event) {
   }
 }
 
+function setNextImageElement(nextElNumber) {
+	nextEl = galleryEl.querySelector(`[data-number="${nextElNumber}"]`);
+    modalBoxImg.attributes.src.value = nextEl.attributes['data-original'].value;
+}
+
 function nextImage() {
   if( imgNumber < galleryItems.length - 1 ) {
     imgNumber++;
-    nextEl = galleryEl.querySelector(`[data-number="${imgNumber}"]`);
-    modalBoxImg.attributes.src.value = nextEl.attributes['data-original'].value;
+	setNextImageElement(imgNumber);
   }
 }
 
 function prevImage() {
   if( imgNumber !== 0 ) {
     imgNumber--;
-    prevEl = galleryEl.querySelector(`[data-number="${imgNumber}"]`);
-    modalBoxImg.attributes.src.value = prevEl.attributes['data-original'].value;
+	setNextImageElement(imgNumber);
   }
 }
 
